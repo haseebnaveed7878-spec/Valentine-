@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Anam</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+  margin:0;
+  height:100vh;
+  background:#0b0b0b;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-family:'Segoe UI',sans-serif;
+  color:#f2f2f2;
+  text-align:center;
+  overflow:hidden;
+}
+.card{
+  max-width:420px;
+  padding:40px 32px;
+  background:rgba(255,255,255,0.04);
+  border-radius:28px;
+  box-shadow:0 0 60px rgba(0,0,0,.7);
+  animation:fade 1.6s ease;
+}
+@keyframes fade{
+  from{opacity:0;transform:translateY(30px)}
+  to{opacity:1;transform:translateY(0)}
+}
+p{
+  line-height:2;
+  font-size:16px;
+}
+button{
+  margin-top:24px;
+  padding:14px 36px;
+  border:none;
+  border-radius:40px;
+  background:#fff;
+  color:#111;
+  font-size:16px;
+  cursor:pointer;
+}
+.tear{
+  position:fixed;
+  top:-20px;
+  font-size:18px;
+  opacity:.6;
+  animation:fall 8s linear infinite;
+}
+@keyframes fall{
+  to{transform:translateY(120vh);opacity:0}
+}
+</style>
+</head>
+
+<body>
+
+<div class="card" id="scene"></div>
+
+<script>
+let page=0;
+
+const scenes=[
+`<h1>Anam</h1>
+<p>
+Ye kahani achanak shuru nahi hui…<br>
+Ye dheere dheere bani hai.<br><br>
+Jaise koi aadat,<br>
+jo pata hi nahi chalne deti<br>
+ke wo zaroorat ban chuki hai.
+</p>
+<button onclick="next()">Aage…</button>`,
+
+`<p>
+Main aksar sochta hoon,<br>
+tum kaise meri zindagi mein<br>
+itni khamoshi se aa gayi.<br><br>
+Na koi wada,<br>
+na koi shor.<br>
+Bas tum… aur tumhara asar.
+</p>
+<button onclick="next()">Aage…</button>`,
+
+`<p>
+Anam,<br>
+tum meri wo muskurahat ho<br>
+jo logon ke samne nahi aati.<br><br>
+Jo sirf tanha raaton mein<br>
+mehsoos hoti hai.
+</p>
+<button onclick="next()">Aage…</button>`,
+
+`<p>
+Main strong banta hoon duniya ke liye,<br>
+lekin tumhare samne<br>
+sab kuch gir jata hai.<br><br>
+Aur shayad…<br>
+ye kamzori nahi,<br>
+sachcha pyaar hota hai.
+</p>
+<button onclick="next()">Aage…</button>`,
+
+`<p>
+Tumhari khamoshi bhi mujhe sunai deti hai.<br>
+Tumhara gussa bhi mehsoos hota hai.<br><br>
+Aur jab tum muskuraati ho…<br>
+toh lagta hai jaise sab theek ho gaya.
+</p>
+<button onclick="next()">Aage…</button>`,
+
+`<p>
+Main perfect nahi hoon.<br>
+Main hamesha sahi nahi hota.<br><br>
+Lekin ek baat sacchi hai —<br>
+main tumhein aadha kabhi nahi chah sakta.
+</p>
+<button onclick="next()">Aage…</button>`,
+
+`<p>
+Agar kabhi main chup ho jaaun,<br>
+toh samajh lena<br>
+ke main haar nahi raha…<br>
+bas sambhal raha hoon.
+</p>
+<button onclick="next()">Aage…</button>`,
+
+`<p>
+Anam,<br>
+tum sirf meri pasand nahi ho.<br><br>
+Tum meri zimmedari ho.<br>
+Mera khayal.<br>
+Meri dua.
+</p>
+<button onclick="next()">Aage…</button>`,
+
+`<p>
+Isliye ye koi game nahi hai.<br>
+Ye koi Valentine trick nahi.<br><br>
+Ye ek aadmi ka dil hai<br>
+jo pehli baar<br>
+poori imandari se bol raha hai.
+</p>
+<button onclick="next()">Aage…</button>`,
+
+`<p>
+Main tumse ye nahi kehta<br>
+ke main kabhi galat nahi hoon ga.<br><br>
+Bas ye wada karta hoon<br>
+ke jab bhi galat hoon ga…<br>
+tumhara hi rahoon ga.
+</p>
+<button onclick="next()">Aage…</button>`,
+
+`<h2>Anam…</h2>
+<p>
+Aaj sirf ek sawaal hai.<br><br>
+Koi zabardasti nahi.<br>
+Koi pressure nahi.<br><br>
+Bas dil se…
+</p>
+<button onclick="next()">Aage…</button>`,
+
+`<h1>Will you be my Valentine?</h1>
+<p>
+Aur agar tum haan kehti ho…<br><br>
+toh ye sirf ek din nahi hoga.<br>
+Ye main hoon,<br>
+har din,<br>
+tumhare saath.
+<br><br>
+— Haseeb
+</p>`
+];
+
+function next(){
+  page++;
+  document.getElementById("scene").innerHTML=scenes[page];
+}
+
+document.getElementById("scene").innerHTML=scenes[0];
+
+setInterval(()=>{
+  const t=document.createElement("div");
+  t.className="tear";
+  t.innerHTML="💧";
+  t.style.left=Math.random()*100+"vw";
+  document.body.appendChild(t);
+  setTimeout(()=>t.remove(),8000);
+},600);
+</script>
+
+</body>
+</html>
