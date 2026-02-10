@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Anam ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #1c1c1c, #3a0f2e);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 38px 32px;
+      border-radius: 24px;
+      max-width: 380px;
+      box-shadow: 0 0 40px rgba(0,0,0,0.5);
+      animation: fadeIn 2s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    p {
+      line-height: 1.9;
+      font-size: 16px;
+      opacity: 0.95;
+    }
+
+    button {
+      border: none;
+      padding: 13px 30px;
+      margin: 14px;
+      font-size: 16px;
+      border-radius: 30px;
+      cursor: pointer;
+    }
+
+    .yes {
+      background: #fff;
+      color: #3a0f2e;
+      font-weight: bold;
+    }
+
+    .no {
+      background: transparent;
+      color: white;
+      border: 1px solid rgba(255,255,255,0.6);
+      position: absolute;
+    }
+
+    .heart {
+      position: fixed;
+      bottom: -20px;
+      font-size: 20px;
+      opacity: 0.6;
+      animation: float 7s linear infinite;
+    }
+
+    @keyframes float {
+      from { transform: translateY(0); opacity: 0.6; }
+      to { transform: translateY(-120vh); opacity: 0; }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="card">
+  <h1>Anam</h1>
+
+  <p>
+    I never planned this.<br>
+    I never expected you.<br><br>
+
+    But somehow… you walked into my thoughts  
+    and stayed there quietly.<br><br>
+
+    Anam, you don’t just make me smile —  
+    you make things feel real.<br><br>
+
+    So this isn’t a line.  
+    This isn’t a moment.<br><br>
+
+    This is me being honest.
+  </p>
+
+  <h2>Will you be my Valentine?</h2>
+
+  <button class="yes" onclick="yesClicked()">Yes</button>
+</div>
+
+<button class="no" id="noBtn">No</button>
+
+<script>
+function yesClicked() {
+  document.body.innerHTML = `
+    <div class="card">
+      <h1>Anam ❤️</h1>
+      <p>
+        Thank you…<br><br>
+        For choosing me.<br>
+        For trusting this feeling.<br><br>
+
+        I don’t promise perfection —  
+        but I promise presence.<br><br>
+
+        On your quiet days.  
+        On your loud days.  
+        On the days you don’t say much.<br><br>
+
+        This isn’t just Valentine’s Day.<br>
+        This is me, choosing you.
+        <br><br>
+        — Haseeb
+      </p>
+    </div>`;
+}
+
+const noBtn = document.getElementById("noBtn");
+noBtn.addEventListener("mouseover", () => {
+  noBtn.style.left = Math.random() * (window.innerWidth - 100) + "px";
+  noBtn.style.top = Math.random() * (window.innerHeight - 50) + "px";
+});
+
+setInterval(() => {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "🖤";
+  heart.style.left = Math.random() * 100 + "vw";
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 7000);
+}, 400);
+</script>
+
+</body>
+</html>
