@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Be My Valentine ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ff416c, #ff4b2b);
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      text-align: center;
+      overflow: hidden;
+    }
+    .card {
+      background: rgba(255,255,255,0.15);
+      padding: 30px;
+      border-radius: 20px;
+      max-width: 340px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.3);
+    }
+    button {
+      border: none;
+      padding: 12px 22px;
+      margin: 10px;
+      font-size: 16px;
+      border-radius: 25px;
+      cursor: pointer;
+    }
+    .yes {
+      background: white;
+      color: #ff416c;
+      font-weight: bold;
+    }
+    .no {
+      background: transparent;
+      color: white;
+      border: 1px solid white;
+      position: absolute;
+    }
+    .heart {
+      position: fixed;
+      bottom: -20px;
+      font-size: 22px;
+      animation: float 5s linear infinite;
+    }
+    @keyframes float {
+      from { transform: translateY(0); opacity: 1; }
+      to { transform: translateY(-110vh); opacity: 0; }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="card">
+  <h1>Hey ❤️</h1>
+  <p>
+    I don’t know when you became this important to me,  
+    but now my days feel incomplete without you.
+  </p>
+  <h2>Will you be my Valentine? 💌</h2>
+  <button class="yes" onclick="yes()">Yes 💖</button>
+</div>
+
+<button class="no" id="no">No 🙈</button>
+
+<script>
+function yes() {
+  document.body.innerHTML = `
+    <div class="card">
+      <h1>Yay! 💕</h1>
+      <p>You just made my heart very happy ❤️</p>
+    </div>`;
+}
+
+const no = document.getElementById("no");
+no.addEventListener("mouseover", () => {
+  no.style.left = Math.random() * (window.innerWidth - 100) + "px";
+  no.style.top = Math.random() * (window.innerHeight - 50) + "px";
+});
+
+setInterval(() => {
+  const h = document.createElement("div");
+  h.className = "heart";
+  h.innerHTML = "💖";
+  h.style.left = Math.random() * 100 + "vw";
+  document.body.appendChild(h);
+  setTimeout(() => h.remove(), 5000);
+}, 300);
+</script>
+
+</body>
+</html>
